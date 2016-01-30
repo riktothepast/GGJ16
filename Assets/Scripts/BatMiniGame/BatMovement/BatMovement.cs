@@ -68,7 +68,7 @@ public class BatMovement : MonoBehaviour {
         if (grounded)
         {
             float random = Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7);
-            if(random < 6)
+            if(random < 8)
             {
                 rigidBody2d.AddForce(new Vector2(0, 1) * jumpSpeed*6, ForceMode2D.Impulse);
             }
