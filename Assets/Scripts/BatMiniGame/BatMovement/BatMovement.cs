@@ -13,6 +13,8 @@ public class BatMovement : MonoBehaviour {
     public Rigidbody2D rigidBody2d;
     public LayerMask layerMask;
     public float radius;
+    public float moveSpeed;
+    public float jumpSpeed;
     protected bool grounded;
     protected bool jumping;
     protected float dir = 0;
@@ -37,12 +39,12 @@ public class BatMovement : MonoBehaviour {
         if (grounded)
         {
             float random = Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7);
-            if(random < 5)
+            if(random < 7)
             {
-                rigidBody2d.AddForce(new Vector2(0, 1) * 10, ForceMode2D.Impulse);
+                rigidBody2d.AddForce(new Vector2(0, 1) * jumpSpeed, ForceMode2D.Impulse);
             }
             else {
-                rigidBody2d.AddForce(new Vector2(0.5f * dir, 1) * 7, ForceMode2D.Impulse);
+                rigidBody2d.AddForce(new Vector2(0.5f * dir * moveSpeed, 1*jumpSpeed) , ForceMode2D.Impulse);
             }
         }
     }
