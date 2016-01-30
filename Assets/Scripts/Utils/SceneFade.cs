@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SceneFade : MonoBehaviour
@@ -64,6 +63,6 @@ public class SceneFade : MonoBehaviour
             yield return null;
         }
         canvas.alpha = 1;
-        SceneManager.LoadScene(sceneNumber);
+        Application.LoadLevel(sceneNumber);
     }
 }
