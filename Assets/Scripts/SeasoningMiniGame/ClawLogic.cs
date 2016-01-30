@@ -22,6 +22,9 @@ public class ClawLogic : MonoBehaviour {
             lastPosition = transform.position;
             ps.transform.position = transform.position;
         }
+        else {
+            displacementSpeed = 0;
+        }
 
 	}
 
