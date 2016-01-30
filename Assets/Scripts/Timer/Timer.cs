@@ -6,14 +6,21 @@ public class Timer : MonoBehaviour {
 
     protected string currentTime;
 
-    public string GetCurrentTimer()
+    protected float _time;
+
+    public string GetCurrentTimerString()
     {
         return currentTime;
     }
 
+    public float GetCurrentTime()
+    {
+        return _time;
+    }
+
 	public void StartTimer(float timeLimit, Action callback)
     {
-        StartCoroutine(TimerCoroutine(timeLimit, callback));
+        StartCoroutine(CountOn(timeLimit, callback));
     }
 
     IEnumerator TimerCoroutine(float timeLimit, Action callback)
@@ -28,11 +35,11 @@ public class Timer : MonoBehaviour {
 
     IEnumerator CountOn(float timeLimit, Action callback)
     {
-        float counter = 0;
-        while(counter < timeLimit)
+        _time = 0;
+        while(_time < timeLimit)
         {
-            counter += Time.deltaTime;
-            currentTime = ((int)counter).ToString("00");
+            _time += Time.deltaTime;
+            currentTime = ((int)_time).ToString("00");
             yield return new WaitForEndOfFrame();
         }
         if(callback != null)
