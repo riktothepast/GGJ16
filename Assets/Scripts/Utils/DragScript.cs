@@ -29,6 +29,7 @@ public class DragScript : MonoBehaviour
         {
             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f));
             currentCollider.transform.position = Vector3.Lerp(currentCollider.transform.position, new Vector3(trackX ? touchPosition.x : transform.position.x, trackY ? touchPosition.y : transform.position.y, currentCollider.transform.position.z), Time.deltaTime * 20.0f);
+            
         }
         if (Input.GetMouseButtonUp(0))
         {
