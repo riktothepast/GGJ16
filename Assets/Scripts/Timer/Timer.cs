@@ -16,5 +16,6 @@ public class Timer : MonoBehaviour {
         {
             callback();
         }
+        GameObject.Destroy(gameObject);
     }
 }

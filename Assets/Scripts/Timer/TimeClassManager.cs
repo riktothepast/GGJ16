@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
-public class TimeClassManager : MonoBehaviour {
+public static class TimeClassManager  {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public static void StartTimer(float timeLimit, Action callback)
+    {
+        GameObject tempGameObject = new GameObject("Timer");
+        Timer timer = tempGameObject.AddComponent<Timer>();
+        timer.StartTimer(timeLimit, callback);
+    }
+
 }
