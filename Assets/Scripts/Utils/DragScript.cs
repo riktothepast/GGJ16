@@ -3,13 +3,13 @@ using System.Collections;
 
 public class DragScript : MonoBehaviour
 {
-
     Collider2D currentCollider;
     public bool trackX, trackY;
     RaycastHit2D hit;
     float displacementSpeed;
     Vector3 lastPosition;
     public ParticleSystem ps;
+
     // Update is called once per frame
     void Update()
     {
@@ -43,6 +43,5 @@ public class DragScript : MonoBehaviour
             displacementSpeed = 0;
             ps.emissionRate = displacementSpeed;
         }
-
     }
 }
