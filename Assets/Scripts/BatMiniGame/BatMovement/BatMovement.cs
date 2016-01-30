@@ -13,12 +13,15 @@ public class BatMovement : MonoBehaviour {
     public Rigidbody2D rigidBody2d;
     public LayerMask layerMask;
     public float radius;
+    public float forwardSpeed;
+    public float backUpSpeed;
     public float moveSpeed;
     public float jumpSpeed;
     public Sprite batIdle;
     public Sprite batHurt;
     public SpriteRenderer spriteRenderer;
     public ParticleSystem particleSystemD;
+    public BatMiniGame batMiniGame;
     protected bool grounded;
     protected float persistance;
     protected BatLife batLife;
@@ -35,12 +38,14 @@ public class BatMovement : MonoBehaviour {
 
     void SetUp()
     {
+        batMiniGame = GameObject.FindObjectOfType<BatMiniGame>();
         spriteRenderer.sprite = batIdle;
-        TimeClassManager.StartTimer(3, JumpLogic);
         rigidBody2d = GetComponent<Rigidbody2D>();
         dir = 1;
         collState = CollState.Right;
         batLife.onDamage = HitDown;
+        batLife.onDeath = OnDeath;
+
     }
 
     public void Launch(Vector2 power)
@@ -56,17 +61,17 @@ public class BatMovement : MonoBehaviour {
             if (rigidBody2d.velocity.magnitude < 10)
             {
                 int chance = Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7);
-                if (chance <= 11 || onlyEscape == true)
+                if (chance <= 12 || onlyEscape == true)
                 {
-                    rigidBody2d.AddForce(new Vector2(70, 30), ForceMode2D.Impulse);
+                    rigidBody2d.AddForce(new Vector2(forwardSpeed, jumpSpeed * 0.2f), ForceMode2D.Impulse);
                 }
-                else if(chance >= 12 && chance < 16)
+                else if(chance >= 13 && chance < 16)
                 {
-                    rigidBody2d.AddForce(new Vector2(-120, 30), ForceMode2D.Impulse);
+                    rigidBody2d.AddForce(new Vector2(backUpSpeed, jumpSpeed * Random.Range(-0.32f,0.32f)), ForceMode2D.Impulse);
                 }
                 else if( chance <= 16)
                 {
-                    rigidBody2d.AddForce(new Vector2(-10, 70), ForceMode2D.Impulse);
+                    rigidBody2d.AddForce(new Vector2(-10, jumpSpeed), ForceMode2D.Impulse);
 
                 }
             }
@@ -139,6 +144,12 @@ public class BatMovement : MonoBehaviour {
         particleSystemD.Spawn(transform.position);
     }
 
+    public void KillBat()
+    {
+        particleSystemD.Spawn(transform.position);
+        GameObject.Destroy(gameObject);
+    }
+
     IEnumerator RestoreMovement()
     {
         yield return new WaitForSeconds(0.8f);
@@ -146,6 +157,11 @@ public class BatMovement : MonoBehaviour {
         batLife.canHitAgain = true;
         spriteRenderer.sprite = batIdle;
 
+    }
+
+    void OnDeath()
+    {
+        batMiniGame.batsKilled += 1;
     }
 
     IEnumerator ScapeOnly()
