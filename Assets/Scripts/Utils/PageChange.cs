@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class PageChange : MonoBehaviour {
 
     public int PageToChange;
@@ -21,6 +21,6 @@ public class PageChange : MonoBehaviour {
             GameObject.FindGameObjectWithTag("Fader").GetComponent<SceneFade>().EndScene(PageToChange);
         }
         else
-            Application.LoadLevel(PageToChange);
+            SceneManager.LoadScene(PageToChange);
     }
 }
