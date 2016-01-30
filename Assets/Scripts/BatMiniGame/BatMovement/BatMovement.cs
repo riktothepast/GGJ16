@@ -20,6 +20,7 @@ public class BatMovement : MonoBehaviour {
     protected bool jumping;
     protected float dir = 0;
     protected CollState collState;
+    protected bool justHit;
 
     void Awake()
     {
@@ -37,9 +38,12 @@ public class BatMovement : MonoBehaviour {
 
     void Update()
     {
-        CheckGround();
-        UpdateCollState();
-        JumpLogic();
+        if (justHit == false)
+        {
+            CheckGround();
+            UpdateCollState();
+            JumpLogic();
+        }
     }
 
     void JumpLogic()
@@ -49,7 +53,7 @@ public class BatMovement : MonoBehaviour {
             float random = Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7);
             if(random < 7)
             {
-                rigidBody2d.AddForce(new Vector2(0, 1) * jumpSpeed, ForceMode2D.Impulse);
+                rigidBody2d.AddForce(new Vector2(0, 1) * jumpSpeed*4, ForceMode2D.Impulse);
             }
             else {
                 rigidBody2d.AddForce(new Vector2(0.5f * dir * moveSpeed, 1*jumpSpeed) , ForceMode2D.Impulse);
@@ -93,6 +97,15 @@ public class BatMovement : MonoBehaviour {
     void HitDown()
     {
         rigidBody2d.AddForce(Vector2.down * 50, ForceMode2D.Impulse);
+        justHit = true;
+        StartCoroutine(RestoreMovement());
+    }
+
+    IEnumerator RestoreMovement()
+    {
+        yield return new WaitForSeconds(0.3f);
+        justHit = false;
+        batLife.canHitAgain = true;
     }
 
     void OnDrawGizmos()
