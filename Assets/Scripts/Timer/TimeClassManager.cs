@@ -4,11 +4,13 @@ using System.Collections;
 
 public static class TimeClassManager  {
 
+    public static Timer currentTimer;
+
     public static void StartTimer(float timeLimit, Action callback)
     {
         GameObject tempGameObject = new GameObject("Timer");
-        Timer timer = tempGameObject.AddComponent<Timer>();
-        timer.StartTimer(timeLimit, callback);
+        TimeClassManager.currentTimer = tempGameObject.AddComponent<Timer>();
+        TimeClassManager.currentTimer.StartTimer(timeLimit, callback);
     }
 
 }
