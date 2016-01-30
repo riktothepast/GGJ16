@@ -68,12 +68,16 @@ public class BatMovement : MonoBehaviour {
         if (grounded)
         {
             float random = Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7);
-            if(random < 8)
+            if(random < 7)
             {
                 rigidBody2d.AddForce(new Vector2(0, 1) * jumpSpeed*6, ForceMode2D.Impulse);
             }
-            else {
+            else if(random >= 7 && random < 14) 
+                    {
                 rigidBody2d.AddForce(new Vector2(0.5f * dir * moveSpeed, 1*jumpSpeed*0.76f) , ForceMode2D.Impulse);
+            }else{
+                rigidBody2d.AddForce(new Vector2(0.5f * dir * moveSpeed, 0), ForceMode2D.Impulse);
+
             }
         }
     }
