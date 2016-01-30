@@ -16,15 +16,23 @@ public class BatMovement : MonoBehaviour {
     public float moveSpeed;
     public float jumpSpeed;
     protected bool grounded;
+    protected BatLife batLife;
     protected bool jumping;
     protected float dir = 0;
     protected CollState collState;
+
+    void Awake()
+    {
+        batLife = GetComponent<BatLife>();
+    }
+
     void Start()
     {
         TimeClassManager.StartTimer(3, JumpLogic);
         rigidBody2d = GetComponent<Rigidbody2D>();
         dir = 1;
         collState = CollState.Right;
+        batLife.onDamage = HitDown;
     }
 
     void Update()
@@ -80,6 +88,11 @@ public class BatMovement : MonoBehaviour {
         {
             collState = CollState.None;
         }
+    }
+
+    void HitDown()
+    {
+        rigidBody2d.AddForce(Vector2.down * 50, ForceMode2D.Impulse);
     }
 
     void OnDrawGizmos()

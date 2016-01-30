@@ -5,16 +5,22 @@ public class AxeMovement : MonoBehaviour {
 
     public Sprite idle;
     public Sprite hit;
+    public Sprite triggerOff;
+    public Sprite triggerOn;
+    public Sprite ready;
     public float hitRadius;
+    public LayerMask mask;
     public Transform hitPosition;
     protected bool isHitting = false;
-    protected SpriteRenderer spriteRenderer;
+    public SpriteRenderer AxeRenderer;
+    public SpriteRenderer TriggerRenderer;
+
 
     void Awake()
     {
         Cursor.visible = false;
         isHitting = false;
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        AxeRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
 	void Update()
@@ -22,16 +28,36 @@ public class AxeMovement : MonoBehaviour {
         if(Input.GetMouseButtonDown(0) && isHitting == false)
         {
             //hit
-            spriteRenderer.sprite = hit;
+            AxeRenderer.sprite = hit;
             isHitting = true;
             StartCoroutine(ReturnToIdle());
         }
         if(isHitting == true)
         {
-            RaycastHit2D hit = Physics2D.CircleCast(hitPosition.position, hitRadius, Vector2.zero, 0);
+            RaycastHit2D hit = Physics2D.CircleCast(hitPosition.position, hitRadius, Vector2.zero, 0,mask);
             if(hit.collider != null)
             {
-                Debug.Log("Hit");
+                BatLife batLife = hit.collider.GetComponent<BatLife>();
+                if(batLife != null)
+                {
+                    batLife.ListenForHit(hitPosition.position);
+                }
+            }
+        }
+        else
+        {
+            RaycastHit2D hit = Physics2D.CircleCast(hitPosition.position, hitRadius, Vector2.zero, 0,mask);
+            if (hit.collider != null)
+            {
+                float distnace = Vector3.Distance(hitPosition.position, hit.collider.transform.position);
+                AxeRenderer.sprite = ready;
+                TriggerRenderer.sprite = triggerOn;
+            }
+            else
+            {
+                AxeRenderer.sprite = idle;
+                TriggerRenderer.sprite = triggerOff;
+
             }
         }
         Vector3 coordiantes = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -41,7 +67,7 @@ public class AxeMovement : MonoBehaviour {
     IEnumerator ReturnToIdle()
     {
         yield return new WaitForSeconds(0.09f);
-        spriteRenderer.sprite = idle;
+        AxeRenderer.sprite = idle;
         isHitting = false;
     }
 
