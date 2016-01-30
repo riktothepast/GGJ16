@@ -9,22 +9,18 @@ public class BatLife : MonoBehaviour {
     public bool canHitAgain = true;
     public OnEvent onDamage;
     
-
     public void ListenForHit(Vector3 position)
     {
         if (canHitAgain)
         {
-            points += 1;
-            if(points == 2)
-            {
-
-            }
+            points -= 1;
+         
             if (onDamage != null)
             {
                 onDamage();
             }
             canHitAgain = false;
-            if (points == 2)
+            if (points == 0)
             {
                 GameObject.Destroy(gameObject);
             }
