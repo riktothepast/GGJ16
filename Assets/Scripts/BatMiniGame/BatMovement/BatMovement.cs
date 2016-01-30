@@ -20,18 +20,20 @@ public class BatMovement : MonoBehaviour {
     public SpriteRenderer spriteRenderer;
     public ParticleSystem particleSystemD;
     protected bool grounded;
+    protected float persistance;
     protected BatLife batLife;
     protected bool jumping;
     protected float dir = 0;
     protected CollState collState;
     protected bool justHit;
+    protected bool onlyEscape = false;
 
     void Awake()
     {
         batLife = GetComponent<BatLife>();
     }
 
-    void Start()
+    void SetUp()
     {
         spriteRenderer.sprite = batIdle;
         TimeClassManager.StartTimer(3, JumpLogic);
@@ -43,6 +45,7 @@ public class BatMovement : MonoBehaviour {
 
     public void Launch(Vector2 power)
     {
+        SetUp();
         rigidBody2d.AddForce(power, ForceMode2D.Impulse);
     }
 
@@ -53,7 +56,7 @@ public class BatMovement : MonoBehaviour {
             if (rigidBody2d.velocity.magnitude < 10)
             {
                 int chance = Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7);
-                if (chance <= 11)
+                if (chance <= 11 || onlyEscape == true)
                 {
                     rigidBody2d.AddForce(new Vector2(70, 30), ForceMode2D.Impulse);
                 }
@@ -143,6 +146,12 @@ public class BatMovement : MonoBehaviour {
         batLife.canHitAgain = true;
         spriteRenderer.sprite = batIdle;
 
+    }
+
+    IEnumerator ScapeOnly()
+    {
+        yield return new WaitForSeconds(persistance);
+        onlyEscape = true;
     }
 
     void OnDrawGizmos()

@@ -14,13 +14,20 @@ public class BatLife : MonoBehaviour {
     {
         if (canHitAgain)
         {
-            float distance = Vector3.Distance(transform.position, position);
-            points += Mathf.Clamp(30.12f - distance, 0, 0.12f) * 100;
+            points += 1;
+            if(points == 2)
+            {
+
+            }
             if (onDamage != null)
             {
                 onDamage();
             }
             canHitAgain = false;
+            if (points == 2)
+            {
+                GameObject.Destroy(gameObject);
+            }
         }
     }
 }
