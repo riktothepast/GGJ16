@@ -25,14 +25,6 @@ public class ClawLogic : MonoBehaviour {
 
 	}
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.tag.Equals("Grater"))
-        {
-            ps.emissionRate = displacementSpeed;
-        }
-    }
-
     void OnTriggerStay2D(Collider2D col)
     {
         if (col.tag.Equals("Grater"))
