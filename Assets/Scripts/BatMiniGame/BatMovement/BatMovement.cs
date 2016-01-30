@@ -21,6 +21,7 @@ public class BatMovement : MonoBehaviour {
     public Sprite batHurt;
     public SpriteRenderer spriteRenderer;
     public ParticleSystem particleSystemD;
+    public BatMiniGame batMiniGame;
     protected bool grounded;
     protected float persistance;
     protected BatLife batLife;
@@ -37,12 +38,14 @@ public class BatMovement : MonoBehaviour {
 
     void SetUp()
     {
+        batMiniGame = GameObject.FindObjectOfType<BatMiniGame>();
         spriteRenderer.sprite = batIdle;
-        TimeClassManager.StartTimer(3, JumpLogic);
         rigidBody2d = GetComponent<Rigidbody2D>();
         dir = 1;
         collState = CollState.Right;
         batLife.onDamage = HitDown;
+        batLife.onDeath = OnDeath;
+
     }
 
     public void Launch(Vector2 power)
@@ -154,6 +157,11 @@ public class BatMovement : MonoBehaviour {
         batLife.canHitAgain = true;
         spriteRenderer.sprite = batIdle;
 
+    }
+
+    void OnDeath()
+    {
+        batMiniGame.batsKilled += 1;
     }
 
     IEnumerator ScapeOnly()

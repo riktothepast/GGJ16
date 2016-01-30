@@ -6,11 +6,14 @@ public class BatMiniGame : MonoBehaviour {
     public BatManager batManager_1;
     public BatManager batManager_2;
 
+    public int batsKilled;
+    public int batsReleased;
+
     void Start()
     {
         batManager_1.StartUp();
         StartCoroutine(StartSecondManager());
-        TimeClassManager.StartTimer(15, Finished);
+        TimeClassManager.StartTimer(25, Finished);
     }
 
     IEnumerator StartSecondManager()
@@ -21,6 +24,7 @@ public class BatMiniGame : MonoBehaviour {
 
     public void Finished()
     {
+        Debug.Log((float)batsKilled / (float)batsReleased);
         Debug.Log("Thats all");
         batManager_1.StopManager();
         batManager_2.StopManager();

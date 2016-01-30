@@ -6,6 +6,7 @@ public class BatManager : MonoBehaviour {
 
     public BatMovement BatMovement;
     public BatMovement fatBat;
+    public BatMiniGame batMiniManager;
 
     public float rate;
     public int max;
@@ -13,6 +14,7 @@ public class BatManager : MonoBehaviour {
 
     public void StartUp()
     {
+        batMiniManager = GameObject.FindObjectOfType<BatMiniGame>();
         StartCoroutine(Spawner());
     }
 
@@ -38,6 +40,7 @@ public class BatManager : MonoBehaviour {
             case 1: power.x = launchPower; power.y = launchPower * 0.1f * -1; break;
             case 2: power.x = launchPower; power.y = launchPower * 0.1f ; break;
         }
+        batMiniManager.batsReleased += 1;
         bat.Launch(power);
     }
 

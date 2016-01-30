@@ -16,10 +16,6 @@ public static class TimeClassManager  {
     /// <param name="callback"></param>
     public static void StartTimer(float timeLimit, Action callback)
     {
-        if(TimeClassManager.currentTimer != null  && TimeClassManager.currentTimer._time == 0)
-        {
-            TimeClassManager.currentTimer = null;
-        }
         if (TimeClassManager.currentTimer == null)
         {
             GameObject tempGameObject = new GameObject("Timer");

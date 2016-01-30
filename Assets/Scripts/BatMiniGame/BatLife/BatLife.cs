@@ -8,6 +8,7 @@ public class BatLife : MonoBehaviour {
     public float points;
     public bool canHitAgain = true;
     public OnEvent onDamage;
+    public OnEvent onDeath;
     
     public void ListenForHit(Vector3 position)
     {
@@ -22,6 +23,10 @@ public class BatLife : MonoBehaviour {
             canHitAgain = false;
             if (points == 0)
             {
+                if(onDeath != null)
+                {
+                    onDeath();
+                }
                 GameObject.Destroy(gameObject);
             }
         }
