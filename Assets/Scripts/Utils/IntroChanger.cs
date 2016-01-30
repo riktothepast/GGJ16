@@ -7,7 +7,7 @@ public class IntroChanger : MonoBehaviour {
     public List<string> dialogues;
     public List<Sprite> sprites;
 
-    public Image img, shadow;
+    public Image img;
     public Text text;
     int currentIndex = -1;
     public float timeToChage = 1f;
@@ -16,20 +16,11 @@ public class IntroChanger : MonoBehaviour {
         img.color = Color.clear;
         text.color= Color.white;
         Invoke("MoveToNextData", 1f);
-        StartCoroutine(ShowShadowData());
 	}
 
     void MoveToNextData()
     {
         StartCoroutine(FadeCurrentData());
-    }
-    IEnumerator ShowShadowData()
-    {
-        while (shadow.color.a < 0.95f)
-        {
-            shadow.color = Color.Lerp(shadow.color, Color.white, Time.deltaTime);
-            yield return new WaitForSeconds(Time.deltaTime);
-        }
     }
 
     IEnumerator FadeCurrentData()
@@ -48,7 +39,8 @@ public class IntroChanger : MonoBehaviour {
         currentIndex++;
         if (currentIndex < dialogues.Count)
         {
-            img.sprite = sprites[currentIndex];
+            if(sprites.Count > currentIndex)
+                img.sprite = sprites[currentIndex];
             text.text = dialogues[currentIndex];
 
             while (text.color.a < 0.95f)
