@@ -6,7 +6,7 @@ public class GraterLogic : MonoBehaviour
     RightMovementController clawController;
     public bool trackX, trackY;
     public float xCenter = 0;
-    public float xRange = 3;
+    public float xRange = 2;
     public float invokeSpeed = 3f;
     // Use this for initialization
 
