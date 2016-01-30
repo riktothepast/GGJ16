@@ -18,23 +18,22 @@ public class BatMovement : MonoBehaviour {
     public Sprite batIdle;
     public Sprite batHurt;
     public SpriteRenderer spriteRenderer;
-    public GameObject scapeLine;
-    public int scapeCount;
     public ParticleSystem particleSystemD;
     protected bool grounded;
-    protected bool justTryScaped = false;
+    protected float persistance;
     protected BatLife batLife;
     protected bool jumping;
     protected float dir = 0;
     protected CollState collState;
     protected bool justHit;
+    protected bool onlyEscape = false;
 
     void Awake()
     {
         batLife = GetComponent<BatLife>();
     }
 
-    void Start()
+    void SetUp()
     {
         spriteRenderer.sprite = batIdle;
         TimeClassManager.StartTimer(3, JumpLogic);
@@ -44,23 +43,38 @@ public class BatMovement : MonoBehaviour {
         batLife.onDamage = HitDown;
     }
 
+    public void Launch(Vector2 power)
+    {
+        SetUp();
+        rigidBody2d.AddForce(power, ForceMode2D.Impulse);
+    }
+
     void Update()
     {
-        if(scapeCount >= 3)
-        {
-            Debug.Log("Player Lost");
-        }
         if (justHit == false)
         {
-            CheckGround();
-            UpdateCollState();
-            JumpLogic();
+            if (rigidBody2d.velocity.magnitude < 10)
+            {
+                int chance = Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7);
+                if (chance <= 11 || onlyEscape == true)
+                {
+                    rigidBody2d.AddForce(new Vector2(70, 30), ForceMode2D.Impulse);
+                }
+                else if(chance >= 12 && chance < 16)
+                {
+                    rigidBody2d.AddForce(new Vector2(-120, 30), ForceMode2D.Impulse);
+                }
+                else if( chance <= 16)
+                {
+                    rigidBody2d.AddForce(new Vector2(-10, 70), ForceMode2D.Impulse);
+
+                }
+            }
+            //CheckGround();
+            //UpdateCollState();
+            // JumpLogic();
         }
-        if(transform.position.y > scapeLine.transform.position.y && justTryScaped == false)
-        {
-            justTryScaped = true;
-            scapeCount += 1;
-        }
+       
     }
 
     void JumpLogic()
@@ -76,7 +90,7 @@ public class BatMovement : MonoBehaviour {
                     {
                 rigidBody2d.AddForce(new Vector2(0.5f * dir * moveSpeed, 1*jumpSpeed*0.76f) , ForceMode2D.Impulse);
             }else{
-                rigidBody2d.AddForce(new Vector2(0.5f * dir * moveSpeed, 0), ForceMode2D.Impulse);
+                rigidBody2d.AddForce(new Vector2(2 * dir * moveSpeed, 0), ForceMode2D.Impulse);
 
             }
         }
@@ -88,7 +102,6 @@ public class BatMovement : MonoBehaviour {
         if(below.collider != null)
         {
             grounded = true;
-            justTryScaped = false;
         }
         else
         {
@@ -133,6 +146,12 @@ public class BatMovement : MonoBehaviour {
         batLife.canHitAgain = true;
         spriteRenderer.sprite = batIdle;
 
+    }
+
+    IEnumerator ScapeOnly()
+    {
+        yield return new WaitForSeconds(persistance);
+        onlyEscape = true;
     }
 
     void OnDrawGizmos()

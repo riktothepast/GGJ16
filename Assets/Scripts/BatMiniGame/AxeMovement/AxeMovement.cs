@@ -11,7 +11,6 @@ public class AxeMovement : MonoBehaviour {
     public float hitRadius;
     public LayerMask mask;
     public Transform hitPosition;
-    public Transform safeZone;
     protected bool canHit = true;
     protected bool isHitting = false;
     public SpriteRenderer AxeRenderer;
@@ -27,24 +26,13 @@ public class AxeMovement : MonoBehaviour {
 
 	void Update()
     {
-        if(transform.position.y < safeZone.position.y)
-        {
-            canHit = false;
-            AxeRenderer.color = Color.gray;
-            TriggerRenderer.color = Color.gray;
-        }
-        else
-        {
-            canHit = true;
-            AxeRenderer.color = Color.white;
-            TriggerRenderer.color = Color.white;
-        }
 
         if (Input.GetMouseButtonDown(0) && isHitting == false && canHit == true)
         {
             //hit
             AxeRenderer.sprite = hit;
             isHitting = true;
+            canHit = false;
             StartCoroutine(ReturnToIdle());
         }
         if(isHitting == true)
@@ -84,6 +72,7 @@ public class AxeMovement : MonoBehaviour {
         yield return new WaitForSeconds(0.18f);
         AxeRenderer.sprite = idle;
         isHitting = false;
+        canHit = true;
     }
 
     void OnDrawGizmos()
