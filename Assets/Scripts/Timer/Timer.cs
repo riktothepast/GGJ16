@@ -6,7 +6,7 @@ public class Timer : MonoBehaviour {
 
     protected string currentTime;
 
-    protected float _time;
+    public float _time;
 
     public string GetCurrentTimerString()
     {
@@ -47,5 +47,6 @@ public class Timer : MonoBehaviour {
             callback();
         }
         GameObject.Destroy(gameObject);
+        TimeClassManager.currentTimer = null;
     }
 }
