@@ -42,9 +42,7 @@ MonoBehaviour:
   totalPoints: 100
   currentPoints: 0
   minigames:
-  - batwings
-  - condiment
-  - monkeybrains
+  - KillTheBat
   currentMiniGame: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
