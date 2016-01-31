@@ -497,7 +497,7 @@ MonoBehaviour:
   AxeRenderer: {fileID: 102180340}
   TriggerRenderer: {fileID: 1138287288}
   velocity: {x: 0, y: 0, z: 0}
-  speed: 45
+  speed: 35
 --- !u!4 &975467956
 Transform:
   m_ObjectHideFlags: 0
