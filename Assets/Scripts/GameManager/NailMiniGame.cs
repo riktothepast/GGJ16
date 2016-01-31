@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NailMiniGame : MonoBehaviour {
+public class NailMiniGame : MiniGameManager {
 
 	// Use this for initialization
 	void Start () {
