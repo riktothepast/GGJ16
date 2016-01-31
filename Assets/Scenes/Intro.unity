@@ -128,10 +128,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogues:
-  - Every year, the lord of demons wakes up near a village...
+  - Every year, the Demon lord awakes near a village...
   - commanding a meal of his ritual stew
-  - a skilled chef is requested to fulfill his request
-  - If the lord demon is pleased with the food, a good year will come to the village.
+  - a skilled chef is picked to make it
+  - If the Demon lord is pleased with the food, he lets your village live another
+    day
   - Otherwise...
   sprites: []
   img: {fileID: 1827086900}
