@@ -216,6 +216,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 11430314, guid: 1d06379f22c3f1b4e9ad0f390ab51a9a, type: 2}
+      propertyPath: mustWaitOnAudioClip
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d06379f22c3f1b4e9ad0f390ab51a9a, type: 2}
   m_IsPrefabParent: 0
@@ -1031,6 +1035,7 @@ MonoBehaviour:
   sound:
   - {fileID: 8300000, guid: 50c873512cee4a1448529d2ed30cae8e, type: 3}
   - {fileID: 8300000, guid: ae5194d2098c9314187460b84e450c92, type: 3}
+  mustWaitForSound: 1
 --- !u!224 &969337251
 RectTransform:
   m_ObjectHideFlags: 0

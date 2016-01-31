@@ -42,6 +42,7 @@ public class AxeMovement : MonoBehaviour {
                 {
                     batLife.ListenForHit(hitPosition.position);
                     Camera.main.SendMessage("DoCameraShake", 2);
+                    GetComponent<SoundLoader>().PlaySound(Random.Range(1,3));
                 }
             }
         }
@@ -75,6 +76,7 @@ public class AxeMovement : MonoBehaviour {
             isHitting = true;
             canHit = false;
             StartCoroutine(ReturnToIdle());
+            GetComponent<SoundLoader>().PlaySound(0);
         }
     }
 
