@@ -9,6 +9,7 @@ TagManager:
   - Draggable
   - Grater
   - Goal
+  - AudioManager
   layers:
   - Default
   - TransparentFX

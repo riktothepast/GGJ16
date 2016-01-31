@@ -369,6 +369,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 107757232}
+--- !u!1001 &187895452
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 474618, guid: 1d06379f22c3f1b4e9ad0f390ab51a9a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474618, guid: 1d06379f22c3f1b4e9ad0f390ab51a9a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474618, guid: 1d06379f22c3f1b4e9ad0f390ab51a9a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474618, guid: 1d06379f22c3f1b4e9ad0f390ab51a9a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474618, guid: 1d06379f22c3f1b4e9ad0f390ab51a9a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474618, guid: 1d06379f22c3f1b4e9ad0f390ab51a9a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474618, guid: 1d06379f22c3f1b4e9ad0f390ab51a9a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 474618, guid: 1d06379f22c3f1b4e9ad0f390ab51a9a, type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1d06379f22c3f1b4e9ad0f390ab51a9a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &318507937
 GameObject:
   m_ObjectHideFlags: 0
@@ -2902,7 +2944,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePoints: 0
+  endMessages: []
   instructions: {fileID: 2022886510}
+  endInstructions: {fileID: 12359772}
 --- !u!4 &1550138955
 Transform:
   m_ObjectHideFlags: 0

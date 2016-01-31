@@ -6,6 +6,9 @@ public class MiniGameManager : MonoBehaviour {
     public MovementController move;
     protected bool started = false;
     protected bool endGame = false;
+
+    public string[] endMessages;
+
 	// Use this for initialization
     public virtual void Start()
     {
