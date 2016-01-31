@@ -52,10 +52,10 @@ namespace Prime31.ZestKit
 
 				_shakeDegredation = shakeDegredation;
 			}
-            Camera.main.transform.ZKlocalPositionTo(new Vector3(0, 0, -10), 2f).start();
-
             if (!_isCurrentlyManagedByZestKit)
                 start();
+
+            Camera.main.transform.ZKlocalPositionTo(new Vector3(0, 0, -10), 2f).start();
 		}
 
         public override void recycleSelf()
