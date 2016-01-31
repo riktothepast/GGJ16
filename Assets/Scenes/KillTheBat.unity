@@ -1399,6 +1399,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 361545d087548e640a51f2142915a083, type: 3}
   - {fileID: 8300000, guid: c84321e19f9c10a40963d5ab58eba847, type: 3}
   - {fileID: 8300000, guid: f6a148201b886fb4990f6ad5dc3b7e5f, type: 3}
+  mustWaitForSound: 0
 --- !u!1 &1018567104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,9 +1992,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePoints: 0
   endMessages:
-  - 1
-  - 2
-  - 3
+  - You didn't kill enough bats!
+  - That's not alot of bats, we are going to need a lot more.
+  - Wonderful! with this many bats the stew will taste, Great!
   batManager_1: {fileID: 1411989069}
   batManager_2: {fileID: 646642707}
   batsKilled: 0
