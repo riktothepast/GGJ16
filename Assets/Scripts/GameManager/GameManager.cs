@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
     int miniGameCount = 0;
     public string[] minigames;
     public MiniGameManager currentMiniGame;
+    public int currentGame;
     private static GameManager _instance;
     public static GameManager instance
     {
@@ -64,9 +65,8 @@ public class GameManager : MonoBehaviour {
 
     public void ChooseFirstGame()
     {
-        reshuffle(minigames);
-        SceneManager.LoadScene(minigames[miniGameCount]);
-        miniGameCount++;
+        SceneManager.LoadScene(minigames[currentGame]);
+        currentGame++;
     }
 
     public void ChooseNextGame()

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class MonkeyMiniGame : MiniGameManager {
@@ -19,7 +20,7 @@ public class MonkeyMiniGame : MiniGameManager {
     IEnumerator EndGame()
     {
         yield return new WaitForSeconds(2);
-        GameManager.instance.ChooseNextGame();
+        SceneManager.LoadScene("ResultPage");
     }
 }
 

@@ -39,7 +39,7 @@ public class BatMiniGame : MiniGameManager {
     IEnumerator EndGame()
     {
         yield return new WaitForSeconds(2);
-        GameManager.instance.ChooseNextGame();
+        GameManager.instance.ChooseFirstGame();
     }
 
 }

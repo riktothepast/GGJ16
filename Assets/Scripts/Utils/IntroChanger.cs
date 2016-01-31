@@ -15,6 +15,12 @@ public class IntroChanger : MonoBehaviour {
 	void Start () {
         img.color = Color.clear;
         text.color= Color.white;
+        currentIndex = 0;
+        if (sprites.Count > 0 && sprites.Count > currentIndex )
+        {
+            img.sprite = sprites[currentIndex];
+        }
+        text.text = dialogues[currentIndex];
         Invoke("MoveToNextData", 1f);
 	}
 
