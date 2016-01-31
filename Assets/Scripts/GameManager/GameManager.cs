@@ -49,6 +49,16 @@ public class GameManager : MonoBehaviour {
 
     public void Start()
     {
+    }
+
+    void OnLevelWasLoaded(int level)
+    {
+        StartCoroutine(StartGame());
+    }
+
+    IEnumerator StartGame()
+    {
+        yield return new WaitForSeconds(0.1f);
         InitGame();
     }
 
@@ -66,7 +76,10 @@ public class GameManager : MonoBehaviour {
 
     public void InitGame()
     {
-        currentMiniGame.InitGame();
+        if (currentMiniGame != null)
+        {
+            currentMiniGame.InitGame();
+        }
     }
 
     public void FinalizeGame()
