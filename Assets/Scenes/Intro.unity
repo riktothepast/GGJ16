@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogues:
   - Every year, the lord of demons wakes up near a village...
-  - commanding a meal of his choice
+  - commanding a meal of his ritual stew
   - a skilled chef is requested to fulfill his request
   - If the lord demon is pleased with the food, a good year will come to the village.
   - Otherwise...
@@ -263,7 +263,6 @@ GameObject:
   - 20: {fileID: 717558850}
   - 92: {fileID: 717558849}
   - 124: {fileID: 717558848}
-  - 81: {fileID: 717558847}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -271,13 +270,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &717558847
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 717558846}
-  m_Enabled: 1
 --- !u!124 &717558848
 Behaviour:
   m_ObjectHideFlags: 0

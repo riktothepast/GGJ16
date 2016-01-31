@@ -1911,7 +1911,6 @@ GameObject:
   - 20: {fileID: 1876502278}
   - 92: {fileID: 1876502277}
   - 124: {fileID: 1876502276}
-  - 81: {fileID: 1876502275}
   - 114: {fileID: 1876502280}
   m_Layer: 0
   m_Name: Main Camera
@@ -1920,13 +1919,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1876502275
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1876502274}
-  m_Enabled: 1
 --- !u!124 &1876502276
 Behaviour:
   m_ObjectHideFlags: 0
@@ -3634,7 +3626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePoints: 0
   endMessages:
-  - We Need a monkey Head!
+  - We Need a monkey brain!
   - Yes! Yes! Yes! The brain look great!
   instructions: {fileID: 969337252}
   endInstructions: {fileID: 473974701}

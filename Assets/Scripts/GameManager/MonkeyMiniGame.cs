@@ -20,7 +20,16 @@ public class MonkeyMiniGame : MiniGameManager {
 
         if (endGame == true && move.Start.WasPressed)
         {
-            SceneManager.LoadScene("ResultPage");
+            int result = GameManager.instance.game_1 + GameManager.instance.game_2 + GameManager.instance.game_3;
+            if (result >= 2)
+            {
+                SceneManager.LoadScene("WinScene");
+            }
+            else
+            {
+                SceneManager.LoadScene("LoseScene");
+
+            }
         }
     }
 
@@ -30,7 +39,7 @@ public class MonkeyMiniGame : MiniGameManager {
         BrainLogic m = GameObject.FindObjectOfType<BrainLogic>();
         if(m.nirvadad == true)
         {
-            GameManager.instance.game_3 = true;
+            GameManager.instance.game_3 = 1;
             gameOver.text = endMessages[1];
         }
         else
