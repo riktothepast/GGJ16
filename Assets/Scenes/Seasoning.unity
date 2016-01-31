@@ -200,6 +200,7 @@ GameObject:
   - 114: {fileID: 87965419}
   - 61: {fileID: 87965417}
   - 50: {fileID: 87965418}
+  - 114: {fileID: 87965416}
   m_Layer: 0
   m_Name: Claw
   m_TagString: Draggable
@@ -249,6 +250,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &87965416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 87965413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163cafb9b2e1382478e0df90f0aed6ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound:
+  - {fileID: 8300000, guid: c84a201492c24ba4da0674f5e52717db, type: 3}
+  - {fileID: 8300000, guid: e459bcf3e8d80c540b7cf85aebd57ec6, type: 3}
+  - {fileID: 8300000, guid: 608a571260e832f4a9c5c510ee8d6cac, type: 3}
+  mustWaitForSound: 1
 --- !u!61 &87965417
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -407,6 +424,10 @@ Prefab:
     - target: {fileID: 474618, guid: 1d06379f22c3f1b4e9ad0f390ab51a9a, type: 2}
       propertyPath: m_RootOrder
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430314, guid: 1d06379f22c3f1b4e9ad0f390ab51a9a, type: 2}
+      propertyPath: mustWaitOnAudioClip
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d06379f22c3f1b4e9ad0f390ab51a9a, type: 2}

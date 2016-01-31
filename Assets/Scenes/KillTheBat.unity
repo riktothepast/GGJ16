@@ -1334,6 +1334,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 975467956}
   - 114: {fileID: 975467955}
+  - 114: {fileID: 975467957}
   m_Layer: 0
   m_Name: Axe
   m_TagString: Untagged
@@ -1381,6 +1382,23 @@ Transform:
   - {fileID: 546591566}
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &975467957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 975467954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163cafb9b2e1382478e0df90f0aed6ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound:
+  - {fileID: 8300000, guid: 87603a0abedb0f540b536c8092526edf, type: 3}
+  - {fileID: 8300000, guid: 49fef02563e29ec4b9cc83c145990bf7, type: 3}
+  - {fileID: 8300000, guid: 361545d087548e640a51f2142915a083, type: 3}
+  - {fileID: 8300000, guid: c84321e19f9c10a40963d5ab58eba847, type: 3}
+  - {fileID: 8300000, guid: f6a148201b886fb4990f6ad5dc3b7e5f, type: 3}
 --- !u!1 &1018567104
 GameObject:
   m_ObjectHideFlags: 0

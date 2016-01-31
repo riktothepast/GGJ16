@@ -46,6 +46,7 @@ public class ClawLogic : MonoBehaviour {
         if (col.tag.Equals("Grater") && displacementSpeed > 0)
         {
             Camera.main.SendMessage("DoCameraShake", 0.2f);
+            GetComponent<SoundLoader>().PlaySound(Random.Range(0,2));
         }
     }
 

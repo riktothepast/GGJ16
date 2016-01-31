@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     public bool _playMusicOnLoaded = false;
     private Dictionary<string, AudioClip> _soundClips = new Dictionary<string, AudioClip>();
     private AudioClip _currentMusicClip = null;
-
+    public bool mustWaitOnAudioClip = false;
     private static AudioManager _instance;
     public static AudioManager instance
     {
@@ -131,7 +131,7 @@ public class AudioManager : MonoBehaviour
                 _soundClips[audioClip.name] = soundClip;
             }
         }
-        if (_soundSource.isPlaying)
+        if (_soundSource.isPlaying && mustWaitOnAudioClip)
             return;
         _soundSource.PlayOneShot(soundClip, volume);
     }
