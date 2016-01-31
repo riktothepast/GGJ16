@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class IntroChanger : MonoBehaviour {
     public List<string> dialogues;
     public List<Sprite> sprites;
-
+    protected MovementController move;
     public Image img;
     public Text text;
     int currentIndex = -1;

@@ -50,6 +50,10 @@ public class GameManager : MonoBehaviour {
 
     public void Start()
     {
+        if(SceneManager.GetActiveScene().name.Equals("MainMenu") == true)
+        {
+            currentGame = 0;
+        }
     }
 
     void OnLevelWasLoaded(int level)
@@ -59,7 +63,7 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator StartGame()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         InitGame();
     }
 

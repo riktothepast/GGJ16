@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using InControl;
 using System.Collections;
 
 public class AxeMovement : MonoBehaviour {
@@ -15,26 +16,21 @@ public class AxeMovement : MonoBehaviour {
     protected bool isHitting = false;
     public SpriteRenderer AxeRenderer;
     public SpriteRenderer TriggerRenderer;
-    
+    public MovementController move;
+    public Vector3 velocity;
+    public float speed;
 
     void Awake()
     {
         Cursor.visible = false;
         isHitting = false;
         AxeRenderer = GetComponentInChildren<SpriteRenderer>();
+        move = MovementController.CreateWithDefaultBindings();
     }
 
 	void Update()
     {
-
-        if (Input.GetMouseButtonDown(0) && isHitting == false && canHit == true)
-        {
-            //hit
-            AxeRenderer.sprite = hit;
-            isHitting = true;
-            canHit = false;
-            StartCoroutine(ReturnToIdle());
-        }
+        AxeClick();
         if(isHitting == true)
         {
             RaycastHit2D hit = Physics2D.CircleCast(hitPosition.position, hitRadius, Vector2.zero, 0,mask);
@@ -63,8 +59,56 @@ public class AxeMovement : MonoBehaviour {
 
             }
         }
+
+        ControllerMovement();
+      
+    }
+
+    public void AxeClick()
+    {
+        if(move.AButton.WasPressed && isHitting == false && canHit == true)
+        {
+            //hit
+            AxeRenderer.sprite = hit;
+            isHitting = true;
+            canHit = false;
+            StartCoroutine(ReturnToIdle());
+        }
+    }
+
+    public void ControllerMovement()
+    {
+
+        velocity.x = move.Move.X;
+
+
+        velocity.y = move.Move.Y;
+
+        if(velocity.magnitude > 1)
+        {
+            velocity = velocity.normalized;
+        }
+
+        transform.position += velocity * speed * Time.deltaTime;
+
+    }
+
+    public void MouseClick()
+    {
+        if (Input.GetMouseButtonDown(0) && isHitting == false && canHit == true)
+        {
+            //hit
+            AxeRenderer.sprite = hit;
+            isHitting = true;
+            canHit = false;
+            StartCoroutine(ReturnToIdle());
+        }
+    }
+
+    public void MouseMovement()
+    {
         Vector3 coordiantes = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = coordiantes+ Vector3.forward *40;
+        transform.position = coordiantes + Vector3.forward * 40;
     }
 
     IEnumerator ReturnToIdle()

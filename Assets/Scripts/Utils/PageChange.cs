@@ -5,9 +5,15 @@ public class PageChange : MonoBehaviour {
     public int PageToChange;
     public bool useFader = false;
     public KeyCode code;
+    protected MovementController move;
+    void Awake()
+    {
+        move = MovementController.CreateWithDefaultBindings();
+    }
+
 	// Update is called once per frame
 	void Update () {
-        if ((Input.GetKeyDown(code)))
+        if (move.AButton.WasPressed)
         {
             ChangePage();
         }
