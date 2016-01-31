@@ -8,6 +8,7 @@ public class ClawLogic : MonoBehaviour {
     public ParticleSystem ps;
     public bool trackX, trackY;
     public GameBounds gameBounds;
+    public bool justHit = false;
 	// Use this for initialization
 	void Start () {
         clawController = MovementController.CreateWithDefaultBindings();
@@ -31,16 +32,18 @@ public class ClawLogic : MonoBehaviour {
 
 	}
 
-    void OnTriggerStay2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag.Equals("Grater"))
+        if (col.tag.Equals("Grater") && justHit == false)
         {
-            ps.emissionRate = displacementSpeed;
+            justHit = true;
+            ps.emissionRate = displacementSpeed*3f;
         }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
+        justHit = false;
         displacementSpeed = 0;
         ps.emissionRate = displacementSpeed;
     }

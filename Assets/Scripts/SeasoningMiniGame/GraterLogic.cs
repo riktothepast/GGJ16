@@ -21,11 +21,11 @@ public class GraterLogic : MonoBehaviour
     {
         if(transform.position.x > 0)
         {
-            transform.position = new Vector3(Random.Range(-gamebounds.transform.localScale.x * 0.5f, -gamebounds.transform.localScale.x * 0.1f), transform.position.y, transform.position.z);
+            transform.position = new Vector3(Random.Range(-gamebounds.transform.localScale.x * 0.36f, -gamebounds.transform.localScale.x * 0.1f), transform.position.y, transform.position.z);
         }
         else
         {
-            transform.position = new Vector3(Random.Range(gamebounds.transform.localScale.x * 0.1f, gamebounds.transform.localScale.x * 0.5f), transform.position.y, transform.position.z);
+            transform.position = new Vector3(Random.Range(gamebounds.transform.localScale.x * 0.1f, gamebounds.transform.localScale.x * 0.36f), transform.position.y, transform.position.z);
         }
         holder.transform.position = new Vector3(transform.position.x,holder.transform.position.y,transform.position.z);
     }
