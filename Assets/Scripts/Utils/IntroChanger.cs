@@ -22,6 +22,7 @@ public class IntroChanger : MonoBehaviour {
         }
         text.text = dialogues[currentIndex];
         Invoke("MoveToNextData", 1f);
+        move = MovementController.CreateWithDefaultBindings();
 	}
 
     void MoveToNextData()

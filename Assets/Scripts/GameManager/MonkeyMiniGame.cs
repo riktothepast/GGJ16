@@ -11,6 +11,7 @@ public class MonkeyMiniGame : MiniGameManager {
         if (started == false && move.AButton.WasPressed)
         {
             started = true;
+            TimeClassManager.StartTimer(10, Finished);
             instructions.gameObject.SetActive(false);
         }
     }
