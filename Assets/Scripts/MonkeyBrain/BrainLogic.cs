@@ -5,7 +5,7 @@ using InControl;
 public class BrainLogic : MonoBehaviour {
     Rigidbody2D rb;
     float lastAngle;
-    float push = 2f;
+    public float push = 2f;
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -23,7 +23,15 @@ public class BrainLogic : MonoBehaviour {
         lastAngle = InputManager.ActiveDevice.LeftStick.Angle;
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            rb.AddForce(Vector2.up *2f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * push, ForceMode2D.Impulse);
         }
 	}
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag.Equals("Goal"))
+        {
+            rb.AddForce(Vector2.up * 50, ForceMode2D.Impulse);
+        }
+    }
 }
