@@ -8,6 +8,7 @@ public class MovementController : PlayerActionSet
     public PlayerAction Right;
     public PlayerAction Up;
     public PlayerAction AButton;
+    public PlayerAction Start;
     public PlayerAction Down;
     public PlayerTwoAxisAction Move;
 
@@ -18,6 +19,7 @@ public class MovementController : PlayerActionSet
         Up = CreatePlayerAction("Move Up");
         Down = CreatePlayerAction("Move Down");
         AButton = CreatePlayerAction("A Button");
+        Start = CreatePlayerAction("Start");
         Move = CreateTwoAxisPlayerAction(Left, Right, Down, Up);
     }
 
@@ -25,7 +27,10 @@ public class MovementController : PlayerActionSet
     {
         var playerController = new MovementController();
         playerController.AButton.AddDefaultBinding(InputControlType.Action1);
-        playerController.AButton.AddDefaultBinding(Key.Return);
+        playerController.AButton.AddDefaultBinding(Key.A);
+
+        playerController.Start.AddDefaultBinding(InputControlType.Start);
+        playerController.Start.AddDefaultBinding(Key.Return);
 
         playerController.Up.AddDefaultBinding(Key.UpArrow);
         playerController.Down.AddDefaultBinding(Key.DownArrow);

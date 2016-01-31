@@ -23,7 +23,7 @@ public class AxeMovement : MonoBehaviour {
 
     void Awake()
     {
-        Cursor.visible = false;
+       // Cursor.visible = false;
         isHitting = false;
         AxeRenderer = GetComponentInChildren<SpriteRenderer>();
         move = MovementController.CreateWithDefaultBindings();
@@ -74,6 +74,7 @@ public class AxeMovement : MonoBehaviour {
             isHitting = true;
             canHit = false;
             StartCoroutine(ReturnToIdle());
+            Camera.main.SendMessage("DoCameraShake", 2);
         }
     }
 

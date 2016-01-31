@@ -15,7 +15,8 @@ public class MiniGameManager : MonoBehaviour {
 	// Update is called once per frame
 	public virtual void Update () 
     {
-	
+        if(move.Start.WasPressed||Input.GetKeyDown(KeyCode.Return))
+            GameManager.instance.ChooseFirstGame();
 	}
 
     public virtual void InitGame()
