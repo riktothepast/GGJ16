@@ -9,9 +9,3 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro.unity
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
-  - enabled: 1
-    path: Assets/Scenes/KillTheBat.unity
-  - enabled: 1
-    path: Assets/Scenes/monkeyBrain.unity
-  - enabled: 1
-    path: Assets/Scenes/Seasoning.unity
