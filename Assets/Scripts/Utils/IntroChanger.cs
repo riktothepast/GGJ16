@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public class IntroChanger : MonoBehaviour {
     public List<string> dialogues;
     public List<Sprite> sprites;
-    protected MovementController move;
     public Image img;
     public Text text;
     int currentIndex = -1;
@@ -22,7 +21,6 @@ public class IntroChanger : MonoBehaviour {
         }
         text.text = dialogues[currentIndex];
         Invoke("MoveToNextData", 1f);
-        move = MovementController.CreateWithDefaultBindings();
 	}
 
     void MoveToNextData()
