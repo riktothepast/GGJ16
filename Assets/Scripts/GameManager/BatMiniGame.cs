@@ -20,7 +20,7 @@ public class BatMiniGame : MiniGameManager {
 
     public override void Update()
     {
-        if (started == false && move.AButton.WasPressed)
+        if (started == false && move.Start.WasPressed)
         {
             started = true;
             batManager_1.StartUp();

@@ -52,6 +52,7 @@ namespace Prime31.ZestKit
 
 				_shakeDegredation = shakeDegredation;
 			}
+            Camera.main.transform.ZKlocalPositionTo(new Vector3(0, 0, -10), 2f).start();
 
             if (!_isCurrentlyManagedByZestKit)
                 start();
@@ -59,7 +60,7 @@ namespace Prime31.ZestKit
 
         public override void recycleSelf()
         {
-            //Camera.main.transform.ZKlocalPositionTo(new Vector3(0, 0, -10), 0.1f).start();
+            Camera.main.transform.ZKlocalPositionTo(new Vector3(0, 0, -10), 0.1f).start();
         }
 
 		#region AbstractTweenable
@@ -69,28 +70,29 @@ namespace Prime31.ZestKit
 			if( _isPaused )
 				return false;
 
-			if( Mathf.Abs( _shakeIntensity ) > 0f )
-			{
-				_shakeOffset = _shakeDirection;
-				if( _shakeOffset != Vector3.zero )
-				{
-					_shakeOffset.Normalize();
-				}
-				else
-				{
-					_shakeOffset.x += Random.Range( 0f, 1f ) - 0.5f;
-					_shakeOffset.y += Random.Range( 0f, 1f ) - 0.5f;
-				}
+            if (Mathf.Abs(_shakeIntensity) > 0f)
+            {
+                _shakeOffset = _shakeDirection;
+                if (_shakeOffset != Vector3.zero)
+                {
+                    _shakeOffset.Normalize();
+                }
+                else
+                {
+                    _shakeOffset.x += Random.Range(0f, 1f) - 0.5f;
+                    _shakeOffset.y += Random.Range(0f, 1f) - 0.5f;
+                }
 
-				_shakeOffset *= _shakeIntensity;
-				_shakeIntensity *= -_shakeDegredation;
-				if( Mathf.Abs( _shakeIntensity ) <= 0.01f )
-					_shakeIntensity = 0f;
+                _shakeOffset *= _shakeIntensity;
+                _shakeIntensity *= -_shakeDegredation;
+                if (Mathf.Abs(_shakeIntensity) <= 0.01f)
+                    _shakeIntensity = 0f;
 
-				_cameraTransform.position += _shakeOffset;
+                if(_cameraTransform)
+                    _cameraTransform.position += _shakeOffset;
 
-				return false;
-			}
+                return false;
+            }
 
 			_isCurrentlyManagedByZestKit = false;
 			return true;
