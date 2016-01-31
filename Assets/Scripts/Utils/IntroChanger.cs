@@ -32,8 +32,8 @@ public class IntroChanger : MonoBehaviour {
     {
         while (text.color.a > 0.1f)
         {
-            text.color = Color.Lerp(text.color, Color.clear, Time.deltaTime);
-            img.color = Color.Lerp(img.color, Color.clear, Time.deltaTime);
+            text.color = Color.Lerp(text.color, Color.clear, Time.deltaTime*timeToChage);
+            img.color = Color.Lerp(img.color, Color.clear, Time.deltaTime * timeToChage);
             yield return new WaitForSeconds(Time.deltaTime);
         }
         StartCoroutine(ShowCurrentData());
@@ -50,8 +50,8 @@ public class IntroChanger : MonoBehaviour {
 
             while (text.color.a < 0.95f)
             {
-                text.color = Color.Lerp(text.color, Color.white, Time.deltaTime);
-                img.color = Color.Lerp(img.color, Color.white, Time.deltaTime);
+                text.color = Color.Lerp(text.color, Color.white, Time.deltaTime * timeToChage);
+                img.color = Color.Lerp(img.color, Color.white, Time.deltaTime * timeToChage);
                 yield return new WaitForSeconds(Time.deltaTime);
 
             }
@@ -59,7 +59,8 @@ public class IntroChanger : MonoBehaviour {
         if (currentIndex < dialogues.Count)
             MoveToNextData();
         else
-            GetComponent<PageChange>().ChangePage();
+            if (GetComponent<PageChange>())
+                GetComponent<PageChange>().ChangePage();
     }
 
 }
