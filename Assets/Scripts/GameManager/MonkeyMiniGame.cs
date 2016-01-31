@@ -4,10 +4,15 @@ using System.Collections;
 
 public class MonkeyMiniGame : MiniGameManager {
 
-    public override void InitGame()
+    public GameObject instructions;
+
+    public override void Update()
     {
-        Debug.Log("Nail Goat");
-        TimeClassManager.StartTimer(10, Finished);
+        if (started == false && move.AButton.WasPressed)
+        {
+            started = true;
+            instructions.gameObject.SetActive(false);
+        }
     }
 
 
