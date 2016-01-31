@@ -146,6 +146,7 @@ public class BatMovement : MonoBehaviour {
 
     public void KillBat()
     {
+        batMiniGame.batsKilled += 1;
         particleSystemD.Spawn(transform.position);
         GameObject.Destroy(gameObject);
     }

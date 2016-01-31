@@ -7,14 +7,7 @@ public class MiniGameManager : MonoBehaviour {
 	// Use this for initialization
     public virtual void Start()
     {
-        if (GameManager.instance != null)
-        {
-            GameManager.instance.currentMiniGame = this;
-        }
-        else
-        {
-            InitGame();
-        }
+        GameManager.instance.currentMiniGame = this;
 	}
 	
 	// Update is called once per frame

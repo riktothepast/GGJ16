@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BatMiniGame : MonoBehaviour {
+public class BatMiniGame : MiniGameManager {
 
     public BatManager batManager_1;
     public BatManager batManager_2;
@@ -9,7 +9,7 @@ public class BatMiniGame : MonoBehaviour {
     public int batsKilled;
     public int batsReleased;
 
-    void Start()
+    public override void InitGame()
     {
         batManager_1.StartUp();
         StartCoroutine(StartSecondManager());

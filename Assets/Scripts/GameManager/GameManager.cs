@@ -47,6 +47,11 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void Start()
+    {
+        InitGame();
+    }
+
     public void ChooseFirstGame()
     {
         reshuffle(minigames);

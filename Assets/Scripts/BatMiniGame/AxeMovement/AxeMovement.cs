@@ -15,7 +15,7 @@ public class AxeMovement : MonoBehaviour {
     protected bool isHitting = false;
     public SpriteRenderer AxeRenderer;
     public SpriteRenderer TriggerRenderer;
-
+    
 
     void Awake()
     {
