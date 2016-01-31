@@ -42,6 +42,7 @@ public class NailMiniGame : MiniGameManager
         }
         else if(per >= 0.7f)
         {
+            GameManager.instance.game_1 = true;
             gameOver.text = endMessages[2];
         }
 

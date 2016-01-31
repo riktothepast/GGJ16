@@ -30,6 +30,7 @@ public class MonkeyMiniGame : MiniGameManager {
         BrainLogic m = GameObject.FindObjectOfType<BrainLogic>();
         if(m.nirvadad == true)
         {
+            GameManager.instance.game_3 = true;
             gameOver.text = endMessages[1];
         }
         else

@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour {
     public int totalPoints, currentPoints;
     int miniGameCount = 0;
     public string[] minigames;
+    public bool game_1 = false;
+    public bool game_2 = false;
+    public bool game_3 = false;
     public MiniGameManager currentMiniGame;
     public int currentGame;
     private static GameManager _instance;
@@ -52,6 +55,9 @@ public class GameManager : MonoBehaviour {
     {
         if(SceneManager.GetActiveScene().name.Equals("MainMenu") == true)
         {
+            game_1 = false;
+            game_2 = false;
+            game_3 = false;
             currentGame = 0;
         }
     }

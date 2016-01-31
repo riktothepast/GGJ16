@@ -56,6 +56,7 @@ public class BatMiniGame : MiniGameManager {
         }
         else if (per >= 0.4f)
         {
+            GameManager.instance.game_2 = true;
             gameOver.text = endMessages[2];
         }
 
