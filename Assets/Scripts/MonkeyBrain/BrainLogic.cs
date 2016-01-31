@@ -8,6 +8,7 @@ public class BrainLogic : MonoBehaviour {
     public float push = 2f;
     ParticleSystem ps;
     SoundLoader soundLoader;
+    public bool nirvadad = false;
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -43,6 +44,7 @@ public class BrainLogic : MonoBehaviour {
     {
         if (col.tag.Equals("Goal"))
         {
+            nirvadad = true;
             rb.AddForce(Vector2.up * 200, ForceMode2D.Impulse);
             Camera.main.SendMessage("DoCameraShake", 5);
         }

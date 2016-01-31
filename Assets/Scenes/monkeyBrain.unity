@@ -177,6 +177,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &168857882 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11434314, guid: 3bb93ca6ca5cd704e8dd999b0c655975,
+    type: 2}
+  m_PrefabInternal: {fileID: 473974699}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &179675756
 Prefab:
   m_ObjectHideFlags: 0
@@ -1003,6 +1009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   push: 3
+  nirvadad: 0
 --- !u!232 &863513404
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -2497,7 +2504,7 @@ ParticleSystem:
           outSlope: 0
           tangentMode: 0
         - time: 1
-          value: 0
+          value: 0.12658228
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -2630,7 +2637,7 @@ ParticleSystem:
       minMaxState: 0
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       maxGradient:
         key0:
@@ -2638,7 +2645,7 @@ ParticleSystem:
           rgba: 4294967295
         key1:
           serializedVersion: 2
-          rgba: 4294967295
+          rgba: 16777215
         key2:
           serializedVersion: 2
           rgba: 0
@@ -2666,7 +2673,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
+        atime1: 64957
         atime2: 0
         atime3: 0
         atime4: 0
@@ -3626,9 +3633,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePoints: 0
-  endMessages: []
+  endMessages:
+  - We Need a monkey Head!
+  - Yes! Yes! Yes! The brain look great!
   instructions: {fileID: 969337252}
   endInstructions: {fileID: 473974701}
+  gameOver: {fileID: 168857882}
 --- !u!4 &2038090324
 Transform:
   m_ObjectHideFlags: 0
