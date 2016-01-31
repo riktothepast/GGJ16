@@ -12,7 +12,7 @@ public class BatMiniGame : MiniGameManager {
 
     public GameObject instructions;
     public GameObject endInstructions;
-    public Text text;
+    public Text gameOver;
 
     public override void InitGame()
     {
@@ -45,8 +45,20 @@ public class BatMiniGame : MiniGameManager {
 
     public void Finished()
     {
-        Debug.Log((float)batsKilled / (float)batsReleased);
-        Debug.Log("Thats all");
+        float per = (float)batsKilled / (float)batsReleased;
+        if (per < 0.3f)
+        {
+            gameOver.text = endMessages[0];
+        }
+        else if (per >= 0.3f && per < 0.4f)
+        {
+            gameOver.text = endMessages[1];
+        }
+        else if (per >= 0.4f)
+        {
+            gameOver.text = endMessages[2];
+        }
+
         batManager_1.StopManager();
         batManager_2.StopManager();
         BatMovement[] allBats = GameObject.FindObjectsOfType<BatMovement>();

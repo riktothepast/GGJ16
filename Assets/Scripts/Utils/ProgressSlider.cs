@@ -22,4 +22,9 @@ public class ProgressSlider : MonoBehaviour {
            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().FinalizeGame();
        }
 	}
+
+    public float GetPercent()
+    {
+        return (float)currentLife / (float)totalLife;
+    }
 }
