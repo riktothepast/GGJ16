@@ -17,9 +17,9 @@ public class BrainLogic : MonoBehaviour {
         if (Mathf.Abs((lastAngle - InputManager.ActiveDevice.LeftStick.Angle) / Time.deltaTime)>750)
         {
             rb.AddForce(Vector2.up * push, ForceMode2D.Impulse);
-        }
-        Debug.Log((lastAngle - InputManager.ActiveDevice.LeftStick.Angle) / Time.deltaTime );
+            Camera.main.SendMessage("DoCameraShake", 0.1f);
 
+        }
         lastAngle = InputManager.ActiveDevice.LeftStick.Angle;
         if (Input.GetKey(KeyCode.UpArrow))
         {
@@ -31,7 +31,8 @@ public class BrainLogic : MonoBehaviour {
     {
         if (col.tag.Equals("Goal"))
         {
-            rb.AddForce(Vector2.up * 50, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * 200, ForceMode2D.Impulse);
+            Camera.main.SendMessage("DoCameraShake", 5);
         }
     }
 }

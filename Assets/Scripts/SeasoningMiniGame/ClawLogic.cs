@@ -41,6 +41,14 @@ public class ClawLogic : MonoBehaviour {
         }
     }
 
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.tag.Equals("Grater") && displacementSpeed > 0)
+        {
+            Camera.main.SendMessage("DoCameraShake", 0.2f);
+        }
+    }
+
     void OnTriggerExit2D(Collider2D col)
     {
         justHit = false;
