@@ -5,6 +5,8 @@ using System.Collections;
 public class MonkeyMiniGame : MiniGameManager {
 
     public GameObject instructions;
+    public GameObject endInstructions;
+
 
     public override void Update()
     {
@@ -14,19 +16,19 @@ public class MonkeyMiniGame : MiniGameManager {
             TimeClassManager.StartTimer(10, Finished);
             instructions.gameObject.SetActive(false);
         }
+
+        if (endGame == true && move.Start.WasPressed)
+        {
+            SceneManager.LoadScene("ResultPage");
+        }
     }
 
 
     public void Finished()
     {
-    
-        StartCoroutine(EndGame());
+        endInstructions.gameObject.SetActive(true);
+        endGame = true;
     }
 
-    IEnumerator EndGame()
-    {
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("ResultPage");
-    }
 }
 

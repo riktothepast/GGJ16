@@ -4,6 +4,8 @@ using System.Collections;
 public class NailMiniGame : MiniGameManager
 {
     public GameObject instructions;
+    public GameObject endInstructions;
+
 
     public override void InitGame()
     {
@@ -18,18 +20,17 @@ public class NailMiniGame : MiniGameManager
             TimeClassManager.StartTimer(10, Finished);
             instructions.gameObject.SetActive(false);
         }
-    }
 
+        if (endGame == true && move.Start.WasPressed)
+        {
+            GameManager.instance.ChooseFirstGame();
+        }
+    }
 
     public void Finished()
     {
-
-        StartCoroutine(EndGame());
+        endInstructions.gameObject.SetActive(true);
+        endGame = true;
     }
 
-    IEnumerator EndGame()
-    {
-        yield return new WaitForSeconds(2);
-        GameManager.instance.ChooseFirstGame();
-    }
 }

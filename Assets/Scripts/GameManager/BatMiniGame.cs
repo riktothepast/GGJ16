@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class BatMiniGame : MiniGameManager {
@@ -10,13 +11,13 @@ public class BatMiniGame : MiniGameManager {
     public int batsReleased;
 
     public GameObject instructions;
+    public GameObject endInstructions;
+    public Text text;
 
     public override void InitGame()
     {
       
     }
-
- 
 
     public override void Update()
     {
@@ -27,6 +28,11 @@ public class BatMiniGame : MiniGameManager {
             StartCoroutine(StartSecondManager());
             TimeClassManager.StartTimer(25, Finished);
             instructions.gameObject.SetActive(false);
+        }
+
+        if(endGame == true && move.Start.WasPressed)
+        {
+            GameManager.instance.ChooseFirstGame();
         }
     }
 
@@ -48,13 +54,9 @@ public class BatMiniGame : MiniGameManager {
         {
             allBats[i].KillBat();
         }
-        StartCoroutine(EndGame());
+        endInstructions.gameObject.SetActive(true);
+        endGame = true;
     }
 
-    IEnumerator EndGame()
-    {
-        yield return new WaitForSeconds(2);
-        GameManager.instance.ChooseFirstGame();
-    }
 
 }
