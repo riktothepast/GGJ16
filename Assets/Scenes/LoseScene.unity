@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound:
-  - {fileID: 8300000, guid: c84a201492c24ba4da0674f5e52717db, type: 3}
+  - {fileID: 8300000, guid: 08bdc11ce9aa0014cabee25bc918d72d, type: 3}
   mustWaitForSound: 0
 --- !u!4 &2024111067
 Transform:
