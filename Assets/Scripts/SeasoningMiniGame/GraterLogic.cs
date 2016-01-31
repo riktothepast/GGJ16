@@ -8,6 +8,8 @@ public class GraterLogic : MonoBehaviour
     public float xCenter = 0;
     public float xRange = 2;
     public float invokeSpeed = 3f;
+    public GameBounds gamebounds;
+    public HolderFiller holder;
     // Use this for initialization
 
     void Start()
@@ -17,7 +19,8 @@ public class GraterLogic : MonoBehaviour
 
     public void NewPosition()
     {
-        transform.position = new Vector3(xCenter + Random.Range(-xRange, xRange), transform.position.y, transform.position.z);
+        transform.position = new Vector3(Random.Range(-gamebounds.transform.localScale.x *0.5f, gamebounds.transform.localScale.x * 0.5f), transform.position.y, transform.position.z);
+        holder.transform.position = transform.position;
     }
 
 }

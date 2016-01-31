@@ -16,11 +16,11 @@ public class ClawLogic : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Vector3 touchPosition = transform.position + clawController.Move;
-        Vector3 newPos = transform.position = Vector3.Lerp(transform.position, new Vector3(trackX ? touchPosition.x : transform.position.x, trackY ? touchPosition.y : transform.position.y, transform.position.z), Time.deltaTime * 20.0f);
+        Vector3 newPos = Vector3.Lerp(transform.position, new Vector3(trackX ? touchPosition.x : transform.position.x, trackY ? touchPosition.y : transform.position.y, transform.position.z), Time.deltaTime * 20.0f);
 
         if (clawController.Move.IsPressed && newPos.x < gameBounds.transform.position.x + gameBounds.transform.localScale.x*0.5f && newPos.x > gameBounds.transform.position.x - gameBounds.transform.localScale.x *0.5f )
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(trackX ? touchPosition.x : transform.position.x, trackY ? touchPosition.y : transform.position.y, transform.position.z), Time.deltaTime * 20.0f);
+            transform.position = newPos;
             displacementSpeed = (((transform.position - lastPosition).magnitude) / Time.deltaTime);
             lastPosition = transform.position;
             ps.transform.position = transform.position;

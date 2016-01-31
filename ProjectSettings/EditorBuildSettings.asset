@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/monkeyBrain.unity
   - enabled: 1
     path: Assets/Scenes/Seasoning.unity
+  - enabled: 1
+    path: Assets/Scenes/ResultPage.unity

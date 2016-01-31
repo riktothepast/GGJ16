@@ -8,6 +8,7 @@ public class HolderFiller : MonoBehaviour {
     RightMovementController clawController;
     public SpriteRenderer interior;
     public bool trackX, trackY;
+    public GameBounds gameBounds;
     void Start()
     {
         clawController = RightMovementController.CreateWithDefaultBindings();
@@ -28,11 +29,14 @@ public class HolderFiller : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (clawController.Move.IsPressed)
+        /*
+        Vector3 touchPosition = transform.position + clawController.Move;
+        Vector3 newPos = Vector3.Lerp(transform.position, new Vector3(trackX ? touchPosition.x : transform.position.x, trackY ? touchPosition.y : transform.position.y, transform.position.z), Time.deltaTime * 20.0f);
+
+        if (clawController.Move.IsPressed && newPos.x < gameBounds.transform.position.x + gameBounds.transform.localScale.x * 0.5f && newPos.x > gameBounds.transform.position.x - gameBounds.transform.localScale.x * 0.5f)
         {
-            Vector3 touchPosition = transform.position + new Vector3(-clawController.Move.X, -clawController.Move.Y, 0);
-            transform.position = Vector3.Lerp(transform.position, new Vector3(trackX ? touchPosition.x : transform.position.x, trackY ? touchPosition.y : transform.position.y, transform.position.z), Time.deltaTime * 20.0f);
-        }
+            transform.position = newPos;
+        }*/
         float scale = Mathf.Clamp(pogressSlider.currentLife / pogressSlider.totalLife, 0, 1);
         interior.transform.localScale = new Vector3(scale,scale, scale);
     }
