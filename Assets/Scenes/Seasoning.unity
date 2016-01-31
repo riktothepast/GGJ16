@@ -115,6 +115,7 @@ RectTransform:
   - {fileID: 1548395951}
   - {fileID: 1652251172}
   - {fileID: 318507938}
+  - {fileID: 1292026811}
   m_Father: {fileID: 855152558}
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
@@ -1079,7 +1080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a90ab0097886f54dbf0d200b7ddd093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalLife: 190
+  totalLife: 80
   currentLife: 0
 --- !u!114 &1159878707
 MonoBehaviour:
@@ -2748,6 +2749,94 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!1 &1292026810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 198506, guid: 40287ddfcc56fdb4d95f005c3e771cf1, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1292026811}
+  - 222: {fileID: 1292026814}
+  - 114: {fileID: 1292026813}
+  - 114: {fileID: 1292026812}
+  m_Layer: 5
+  m_Name: Body_2 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1292026811
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22440092, guid: 40287ddfcc56fdb4d95f005c3e771cf1,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1292026810}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 12359773}
+  m_RootOrder: 3
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -100, y: 12.600006}
+  m_SizeDelta: {x: 400, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1292026812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1292026810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a82db0d089b40548ac02d11e9080345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1292026813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11492856, guid: 40287ddfcc56fdb4d95f005c3e771cf1,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1292026810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 32
+    m_FontStyle: 2
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 97
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: press start  to continue
+--- !u!222 &1292026814
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22226894, guid: 40287ddfcc56fdb4d95f005c3e771cf1,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1292026810}
 --- !u!1 &1344178733
 GameObject:
   m_ObjectHideFlags: 0
@@ -3024,9 +3113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePoints: 0
   endMessages:
-  - There's not enough nails!
-  - We need more nails if we want it to crunch!
-  - That'll do! Make a nice Crunch
+  - Not enough nails!
+  - That'll do! Make a nice crunch in the stew!
   instructions: {fileID: 2022886510}
   endInstructions: {fileID: 12359772}
   gameOver: {fileID: 318507939}

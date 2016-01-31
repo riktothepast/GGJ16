@@ -1986,7 +1986,7 @@ MonoBehaviour:
   endMessages:
   - You didn't kill enough bats!
   - That's not alot of bats, we are going to need a lot more.
-  - Wonderful! with this many bats the stew will taste, Great!
+  - Wonderful, with this many bats the stew will taste, Great!
   batManager_1: {fileID: 1411989069}
   batManager_2: {fileID: 646642707}
   batsKilled: 0

@@ -33,17 +33,14 @@ public class NailMiniGame : MiniGameManager
     {
         float per = holderFilller.pogressSlider.GetPercent();
 
-        if(per < 0.3f)
+        if(per < 0.6f)
         {
             gameOver.text = endMessages[0];
-        }else if(per >=0.3f && per < 0.7f)
-        {
-            gameOver.text = endMessages[1];
         }
-        else if(per >= 0.7f)
+        else if(per >= 0.6f)
         {
             GameManager.instance.game_1 = 1;
-            gameOver.text = endMessages[2];
+            gameOver.text = endMessages[1];
         }
 
         endInstructions.gameObject.SetActive(true);

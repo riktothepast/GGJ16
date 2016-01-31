@@ -46,15 +46,11 @@ public class BatMiniGame : MiniGameManager {
     public void Finished()
     {
         float per = (float)batsKilled / (float)batsReleased;
-        if (per < 0.3f)
+        if (per < 0.5f)
         {
             gameOver.text = endMessages[0];
         }
-        else if (per >= 0.3f && per < 0.4f)
-        {
-            gameOver.text = endMessages[1];
-        }
-        else if (per >= 0.4f)
+        else if (per >= 0.5f)
         {
             GameManager.instance.game_2 = 1;
             gameOver.text = endMessages[2];
