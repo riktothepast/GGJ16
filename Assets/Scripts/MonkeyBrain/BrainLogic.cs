@@ -5,7 +5,7 @@ using InControl;
 public class BrainLogic : MonoBehaviour {
     Rigidbody2D rb;
     float lastAngle;
-    float push = 2f;
+    public float push = 2f;
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
