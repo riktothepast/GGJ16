@@ -9,12 +9,27 @@ public class BatMiniGame : MiniGameManager {
     public int batsKilled;
     public int batsReleased;
 
+    public GameObject instructions;
+
     public override void InitGame()
     {
-        batManager_1.StartUp();
-        StartCoroutine(StartSecondManager());
-        TimeClassManager.StartTimer(25, Finished);
+      
     }
+
+ 
+
+    public override void Update()
+    {
+        if (started == false && move.AButton.WasPressed)
+        {
+            started = true;
+            batManager_1.StartUp();
+            StartCoroutine(StartSecondManager());
+            TimeClassManager.StartTimer(25, Finished);
+            instructions.gameObject.SetActive(false);
+        }
+    }
+
 
     IEnumerator StartSecondManager()
     {

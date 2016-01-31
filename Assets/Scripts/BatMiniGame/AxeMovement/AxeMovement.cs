@@ -17,6 +17,7 @@ public class AxeMovement : MonoBehaviour {
     public SpriteRenderer AxeRenderer;
     public SpriteRenderer TriggerRenderer;
     public MovementController move;
+    public GameBounds gameBounds;
     public Vector3 velocity;
     public float speed;
 
@@ -88,9 +89,16 @@ public class AxeMovement : MonoBehaviour {
         {
             velocity = velocity.normalized;
         }
-
-        transform.position += velocity * speed * Time.deltaTime;
-
+        Vector3 newPOs = transform.position + velocity * speed * Time.deltaTime;
+        if(!(newPOs.x < gameBounds.transform.position.x + gameBounds.transform.localScale.x*0.5f && newPOs.x > gameBounds.transform.position.x - gameBounds.transform.localScale.x * 0.5f))
+        {
+            newPOs.x = transform.position.x;
+        }
+        if (!(newPOs.y < gameBounds.transform.position.y + gameBounds.transform.localScale.y * 0.5f && newPOs.y > gameBounds.transform.position.y - gameBounds.transform.localScale.y * 0.5f))
+        {
+            newPOs.y = transform.position.y;
+        }
+        transform.position = newPOs;
     }
 
     public void MouseClick()

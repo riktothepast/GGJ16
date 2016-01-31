@@ -3,11 +3,21 @@ using System.Collections;
 
 public class NailMiniGame : MiniGameManager
 {
+    public GameObject instructions;
 
     public override void InitGame()
     {
-        Debug.Log("Nail Goat");
-        TimeClassManager.StartTimer(10, Finished);
+        
+    }
+
+    public override void Update()
+    {
+        if(started == false && move.AButton.WasPressed)
+        {
+            started = true;
+            TimeClassManager.StartTimer(10, Finished);
+            instructions.gameObject.SetActive(false);
+        }
     }
 
 

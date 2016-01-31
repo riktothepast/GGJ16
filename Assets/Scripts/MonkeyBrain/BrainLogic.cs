@@ -14,7 +14,7 @@ public class BrainLogic : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Mathf.Abs((lastAngle - InputManager.ActiveDevice.LeftStick.Angle) / Time.deltaTime)>1000)
+        if (Mathf.Abs((lastAngle - InputManager.ActiveDevice.LeftStick.Angle) / Time.deltaTime)>750)
         {
             rb.AddForce(Vector2.up * push, ForceMode2D.Impulse);
         }
