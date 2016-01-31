@@ -33,5 +33,13 @@ public class BatMiniGame : MiniGameManager {
         {
             allBats[i].KillBat();
         }
+        StartCoroutine(EndGame());
     }
+
+    IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(2);
+        GameManager.instance.ChooseNextGame();
+    }
+
 }

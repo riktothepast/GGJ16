@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NailMiniGame : MiniGameManager
-{
+public class MonkeyMiniGame : MiniGameManager {
 
     public override void InitGame()
     {
@@ -13,7 +12,7 @@ public class NailMiniGame : MiniGameManager
 
     public void Finished()
     {
-
+    
         StartCoroutine(EndGame());
     }
 
@@ -23,3 +22,4 @@ public class NailMiniGame : MiniGameManager
         GameManager.instance.ChooseNextGame();
     }
 }
+
