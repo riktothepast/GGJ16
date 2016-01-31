@@ -12,7 +12,7 @@ public class IntroChanger : MonoBehaviour {
     public float timeToChage = 1f;
 	// Use this for initialization
 	void Start () {
-        img.color = Color.clear;
+        img.color = Color.black;
         text.color= Color.white;
         currentIndex = 0;
         if (sprites.Count > 0 && sprites.Count > currentIndex )
@@ -33,7 +33,7 @@ public class IntroChanger : MonoBehaviour {
         while (text.color.a > 0.1f)
         {
             text.color = Color.Lerp(text.color, Color.clear, Time.deltaTime*timeToChage);
-            img.color = Color.Lerp(img.color, Color.clear, Time.deltaTime * timeToChage);
+            img.color = Color.Lerp(img.color, Color.black, Time.deltaTime * timeToChage);
             yield return new WaitForSeconds(Time.deltaTime);
         }
         StartCoroutine(ShowCurrentData());
@@ -51,7 +51,7 @@ public class IntroChanger : MonoBehaviour {
             while (text.color.a < 0.95f)
             {
                 text.color = Color.Lerp(text.color, Color.white, Time.deltaTime * timeToChage);
-                img.color = Color.Lerp(img.color, Color.white, Time.deltaTime * timeToChage);
+                img.color = Color.Lerp(img.color, Color.black, Time.deltaTime * timeToChage);
                 yield return new WaitForSeconds(Time.deltaTime);
 
             }

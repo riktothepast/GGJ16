@@ -64,6 +64,13 @@ public class GameManager : MonoBehaviour {
 
     void OnLevelWasLoaded(int level)
     {
+        if (SceneManager.GetActiveScene().name.Equals("MainMenu") == true)
+        {
+            game_1 = 0;
+            game_2 = 0;
+            game_3 = 0;
+            currentGame = 0;
+        }
         StartCoroutine(StartGame());
     }
 

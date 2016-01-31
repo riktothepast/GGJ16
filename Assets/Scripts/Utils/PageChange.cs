@@ -17,6 +17,7 @@ public class PageChange : MonoBehaviour {
         {
             Debug.Log("page change");
             ChangePage();
+            AudioManager.instance.StopAll();
         }
 	}
 

@@ -8,6 +8,7 @@ public class WinGame : MonoBehaviour {
     public float returTIme;
 	// Use this for initialization
 	void Start () {
+        AudioManager.instance.StopAll();
         sound.PlaySound(0);
 	}
 	

@@ -108,6 +108,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void StopAll()
+    {
+        _soundSource.Stop();
+    }
+
     public void PlaySound(AudioClip audioClip, float volume) //it is not necessary to preload sounds in order to play them
     {
 

@@ -37,7 +37,6 @@ public class ClawLogic : MonoBehaviour {
         if (col.tag.Equals("Grater") && justHit == false)
         {
             justHit = true;
-            ps.emissionRate = displacementSpeed*3f;
         }
     }
 
@@ -47,7 +46,15 @@ public class ClawLogic : MonoBehaviour {
         {
             Camera.main.SendMessage("DoCameraShake", 0.2f);
             GetComponent<SoundLoader>().PlaySound(Random.Range(0,2));
+            ps.emissionRate = displacementSpeed * 3f;
+
         }
+        else
+        {
+            ps.emissionRate = 0;
+
+        }
+
     }
 
     void OnTriggerExit2D(Collider2D col)
